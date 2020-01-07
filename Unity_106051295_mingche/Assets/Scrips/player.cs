@@ -11,21 +11,28 @@ public class player : MonoBehaviour
     public bool catch_;
     [Header("撿東西判定")]
     public Rigidbody catch_rig;
+    public GameObject floor;
     [Header("攝影機轉換")]
     public Transform cam_tran;
     public GameObject cam_obj;
     [Header("重新開始")]
     public GameObject Text;
 
-
-
     private void OnTriggerStay(Collider other)
     {
-        print(other);
+        print(other.tag);
         if(other.name == "M4a1"&& ani.GetCurrentAnimatorStateInfo(0).IsName("catch"))
         {
             Physics.IgnoreCollision(other, GetComponent<Collider>());
             other.GetComponent<HingeJoint>().connectedBody = catch_rig;
+            //floor.SetActive(true);
+            return;
+        }
+        if (other.tag == "floor" && ani.GetCurrentAnimatorStateInfo(0).IsName("catch"))
+        {
+            GameObject.Find("M4a1").GetComponent<HingeJoint>().connectedBody = null;
+            // floor.SetActive(false);
+
         }
         if (other.name == "過關" && ani.GetCurrentAnimatorStateInfo(0).IsName("catch"))
         {
