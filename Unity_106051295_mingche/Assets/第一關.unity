@@ -439,6 +439,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.20143741, y: 0.5456269, z: 1.6748097}
   m_Center: {x: -0.0018518865, y: 0.0147327185, z: 0.123004556}
+--- !u!4 &92088460 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: fddeeac0ebed86c4cab4320764b5c227,
+    type: 3}
+  m_PrefabInstance: {fileID: 38478732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &92088461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92088456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8c6e9b32d64b04fa7c2b1e3384408c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  M4_rig: {fileID: 92088458}
+  M4_speed: 1000
+  M4_tran: {fileID: 92088460}
 --- !u!1 &108651521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,11 +2600,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 320b1c2af77554f99a1658df4a6d3d5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Robot Kyle
-      objectReference: {fileID: 0}
     - target: {fileID: -5716681864270162303, guid: 320b1c2af77554f99a1658df4a6d3d5c,
         type: 3}
       propertyPath: m_CullingType
@@ -2649,6 +2665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 320b1c2af77554f99a1658df4a6d3d5c,
+        type: 3}
+      propertyPath: m_Name
+      value: Robot Kyle
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5716681864270162303, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
@@ -3998,6 +4019,10 @@ MonoBehaviour:
   ani: {fileID: 1590099409}
   catch_: 0
   catch_rig: {fileID: 250570851}
+  isprop: 0
+  M4_rig: {fileID: 92088458}
+  M4_speed: 1000
+  M4_tran: {fileID: 92088460}
   cam_tran: {fileID: 1802172520}
   cam_obj: {fileID: 67772573}
   Text: {fileID: 617547906}
@@ -5236,8 +5261,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.48128346, y: 0.33569956, z: 1.5951332}
-  m_Center: {x: -0.08593516, y: 0.08547729, z: -0.04879111}
+  m_Size: {x: 0.48128346, y: 0.33569956, z: 0.63024616}
+  m_Center: {x: -0.08593516, y: 0.08547729, z: 0.4336524}
 --- !u!4 &2052713084
 Transform:
   m_ObjectHideFlags: 0

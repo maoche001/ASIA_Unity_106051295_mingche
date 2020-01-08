@@ -11,7 +11,10 @@ public class player : MonoBehaviour
     public bool catch_;
     [Header("撿東西判定")]
     public Rigidbody catch_rig;
-    public GameObject floor;
+    public bool isprop;
+    public Rigidbody M4_rig;
+    public float M4_speed;
+    public Transform M4_tran;
     [Header("攝影機轉換")]
     public Transform cam_tran;
     public GameObject cam_obj;
@@ -20,14 +23,16 @@ public class player : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        print(other.tag);
-        if(other.name == "M4a1"&& ani.GetCurrentAnimatorStateInfo(0).IsName("catch"))
+        print(other.name);
+        if(other.name == "M4a1"&& catch_ && !isprop)
         {
             Physics.IgnoreCollision(other, GetComponent<Collider>());
             other.GetComponent<HingeJoint>().connectedBody = catch_rig;
+            //other.GetComponent<BoxCollider>().enabled = false;
             //floor.SetActive(true);
-            return;
+            isprop = true;
         }
+        
         if (other.tag == "floor" && ani.GetCurrentAnimatorStateInfo(0).IsName("catch"))
         {
             GameObject.Find("M4a1").GetComponent<HingeJoint>().connectedBody = null;
@@ -55,6 +60,13 @@ public class player : MonoBehaviour
         Turn();
         Run();
         Catch();
+        if (ani.GetCurrentAnimatorStateInfo(0).IsName("catch") && isprop)
+        {
+            GameObject.Find("M4a1").GetComponent<HingeJoint>().connectedBody = null;
+            GameObject.Find("M4a1").GetComponent<BoxCollider>().enabled = true;
+            M4_rig.AddForce(M4_tran.forward*M4_speed * Time.deltaTime);
+            isprop = false;
+        }
     }
 
     private void walk()
